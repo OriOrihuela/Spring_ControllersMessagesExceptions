@@ -29,15 +29,15 @@ public class Persona {
 
     /* ---- Getters ---- */
     public String getClau() {
-        return clau;
+        return this.clau;
     }
 
     public String getTelefon() {
-        return telefon;
+        return this.telefon;
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
 

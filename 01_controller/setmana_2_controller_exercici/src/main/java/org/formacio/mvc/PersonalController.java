@@ -33,4 +33,9 @@ public class PersonalController {
     public String numverPeopleInBBDD() {
         return "Hi ha " + getBaseDeDades().size() +" persones";
     }
+
+    @RequestMapping(path="/consulta")
+    public String returnNameOfPerson(int id) {
+        return getBaseDeDades().get(id);
+    }
 }

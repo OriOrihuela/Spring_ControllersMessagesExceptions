@@ -14,23 +14,28 @@ public class AgendaService {
     private Map<String, Persona> bbdd = new LinkedHashMap<>();
 
 
+    /* ---- Getters ---- */
+    public Map<String, Persona> getBbdd() {
+        return this.bbdd;
+    }
+
     /* ---- Behaviours ---- */
     @PostConstruct
     public void init() {
-        bbdd.put("ant", new Persona("ant", "Antoni", "971-555123"));
-        bbdd.put("joa", new Persona("joa", "Joana", "971-555555"));
+        getBbdd().put("ant", new Persona("ant", "Antoni", "971-555123"));
+        getBbdd().put("joa", new Persona("joa", "Joana", "971-555555"));
         bbdd.put("lin", new Persona("lin", "Lina", "971-555888"));
     }
 
     public void inserta(String id, String nom, String telefon) {
-        bbdd.put(id, new Persona(id, nom, telefon));
+        getBbdd().put(id, new Persona(id, nom, telefon));
     }
 
     public Persona recupera(String id) {
-        return bbdd.get(id);
+        return getBbdd().get(id);
     }
 
     public int nombreContactes() {
-        return bbdd.size();
+        return getBbdd().size();
     }
 }

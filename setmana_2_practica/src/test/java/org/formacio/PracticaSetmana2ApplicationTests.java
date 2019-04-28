@@ -51,7 +51,7 @@ public class PracticaSetmana2ApplicationTests {
     /**
      * A la peticio /contacte/id
      * ha de respondre amb l'objecte Persona corresponent al identificador id (forma part de la url)
-     * <p>
+     *
      * Per aquest test basta que s'accepti JSON
      */
     @Test

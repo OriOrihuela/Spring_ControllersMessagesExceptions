@@ -24,7 +24,7 @@ public class AgendaService {
     public void init() {
         getBbdd().put("ant", new Persona("ant", "Antoni", "971-555123"));
         getBbdd().put("joa", new Persona("joa", "Joana", "971-555555"));
-        bbdd.put("lin", new Persona("lin", "Lina", "971-555888"));
+        getBbdd().put("lin", new Persona("lin", "Lina", "971-555888"));
     }
 
     public void inserta(String id, String nom, String telefon) {

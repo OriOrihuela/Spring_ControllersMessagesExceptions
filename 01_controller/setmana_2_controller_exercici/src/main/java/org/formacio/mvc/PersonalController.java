@@ -29,4 +29,8 @@ public class PersonalController {
 
 
     /* ---- Behaviours ---- */
+    @RequestMapping(path="/info")
+    public String numverPeopleInBBDD() {
+        return "Hi ha " + getBaseDeDades().size() +" persones";
+    }
 }

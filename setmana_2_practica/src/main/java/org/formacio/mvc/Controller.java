@@ -1,13 +1,15 @@
 package org.formacio.mvc;
 
+
 import org.formacio.repositori.AgendaService;
 import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-public class Controller {
+public class Controller extends RuntimeException {
 
     /* ---- Properties ---- */
     @Autowired
@@ -30,8 +32,17 @@ public class Controller {
         return getAgendaService().recupera(id).getTelefon();
     }
 
+    @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "ID not in database")
+    @ExceptionHandler(Exception.class)
+    public void error() {
+    }
+
     @RequestMapping("/contacte/{id}")
-    public Persona returnPerson(@PathVariable String id) {
+    public Persona returnPerson(@PathVariable String id) throws Exception {
+        if (!getAgendaService().getBbdd().containsKey(id)) {
+            Exception idNotInBBDD = new Exception();
+            throw idNotInBBDD;
+        }
         return getAgendaService().recupera(id);
     }
 
@@ -39,5 +50,4 @@ public class Controller {
     public void addNewContact(String id, String nom, String telèfon) {
         getAgendaService().inserta(id, nom, telèfon);
     }
-
 }

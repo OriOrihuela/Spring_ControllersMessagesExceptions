@@ -1,6 +1,7 @@
 package org.formacio.mvc;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -29,13 +30,13 @@ public class PersonalController {
 
 
     /* ---- Behaviours ---- */
-    @RequestMapping(path="/info")
+    @RequestMapping(path = "/info")
     public String numverPeopleInBBDD() {
-        return "Hi ha " + getBaseDeDades().size() +" persones";
+        return "Hi ha " + getBaseDeDades().size() + " persones";
     }
 
-    @RequestMapping(path="/consulta")
-    public String returnNameOfPerson(int id) {
+    @RequestMapping(path = "/consulta")
+    public String returnNameOfPerson(@RequestParam(name = "id", required = false, defaultValue = "0") int id) {
         return getBaseDeDades().get(id);
     }
 }

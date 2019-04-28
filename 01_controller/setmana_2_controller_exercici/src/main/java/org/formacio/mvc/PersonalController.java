@@ -11,11 +11,11 @@ import java.util.List;
 @RequestMapping("/personal")
 public class PersonalController {
 
-    // no toqueu la declaracio de baseDeDades ni el metode getBaseDeDades
-    //
-    // als metodes que anau afegint, tracteu aquest array com si fos la base de dades
-    //
-    // per exemple, obtenir la persona amb id 1 sera fer baseDeDades.get(1), etc etc
+    /**
+     * No toqueu la declaracio de baseDeDades ni el metode getBaseDeDades
+     * Els metodes que anau afegint, tracteu aquest array com si fos la base de dades: per exemple, obtenir la persona
+     * amb id 1 sera fer baseDeDades.get(1), etc etc
+     */
 
 
     /* ---- Properties ---- */

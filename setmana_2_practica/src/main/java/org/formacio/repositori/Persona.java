@@ -1,44 +1,50 @@
 package org.formacio.repositori;
 
 
-
 public class Persona {
 
-	private String clau;
-	private String nom;
-	private String telefon;
-	
-	public Persona() {
-	}
+    /* ---- Properties ---- */
+    private String clau;
+    private String nom;
+    private String telefon;
 
-	public Persona(String clau, String nom, String telefon) {
-		this.clau = clau;
-		this.nom = nom;
-		this.telefon = telefon;
-	}
 
-	public String getClau() {
-		return clau;
-	}
+    /* ---- Constructors ---- */
+    public Persona() {
+    }
 
-	public void setClau(String clau) {
-		this.clau = clau;
-	}
+    public Persona(String clau, String nom, String telefon) {
+        this.clau = clau;
+        this.nom = nom;
+        this.telefon = telefon;
+    }
 
-	public String getNom() {
-		return nom;
-	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    /* ---- Getters ---- */
+    public String getClau() {
+        return clau;
+    }
 
-	public String getTelefon() {
-		return telefon;
-	}
+    public String getTelefon() {
+        return telefon;
+    }
 
-	public void setTelefon(String telefon) {
-		this.telefon = telefon;
-	}
+    public String getNom() {
+        return nom;
+    }
+
+
+    /* ---- Setters ---- */
+    public void setClau(String clau) {
+        this.clau = clau;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
 
 }

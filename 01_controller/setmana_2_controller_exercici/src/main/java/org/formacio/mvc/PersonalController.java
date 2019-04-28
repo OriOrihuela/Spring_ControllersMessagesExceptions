@@ -1,9 +1,6 @@
 package org.formacio.mvc;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,5 +41,11 @@ public class PersonalController {
     @RequestMapping(path="/persona/{index}")
     public String returnNameOfPerson1(@PathVariable int index) {
         return getBaseDeDades().get(index);
+    }
+
+    @RequestMapping(path = "/afegir", method = RequestMethod.POST)
+    public String afegirPersona(String nom) {
+        getBaseDeDades().add(nom);
+        return "ok";
     }
 }

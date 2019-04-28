@@ -54,7 +54,8 @@ public class ControllerTests {
     @Test
     public void test_info() throws Exception {
         this.mockMvc.perform(get("/personal/info")).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hi ha " + controller.getBaseDeDades().size() + " persones")));
+                .andExpect(content().string(containsString("Hi ha " + controller.getBaseDeDades().size() +
+                        " persones")));
     }
 
     /**

@@ -5,6 +5,7 @@ import org.formacio.repositori.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -34,6 +35,11 @@ public class Controller {
     @RequestMapping("/contacte/{id}")
     public Persona returnPerson(@PathVariable String id) {
         return getAgendaService().recupera(id);
+    }
+
+    @RequestMapping(value = "/afegir", method = RequestMethod.POST)
+    public void addNewContact(String id, String nom, String telèfon) {
+        getAgendaService().inserta(id, nom, telèfon);
     }
 
 }

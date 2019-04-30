@@ -37,7 +37,7 @@ public class Controller {
     }
 
     @RequestMapping(path = "/afegir", method = RequestMethod.POST)
-    public void addNewContact(@RequestParam String id, String nom, String telèfon) {
-        agendaService.inserta(id, nom, telèfon);
+    public void addNewContact(@RequestParam String id, String nom, String telefon) {
+        agendaService.inserta(id, nom, telefon);
     }
 }

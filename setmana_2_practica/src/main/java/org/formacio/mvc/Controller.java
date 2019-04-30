@@ -17,12 +17,12 @@ public class Controller extends RuntimeException {
 
 
     /* ---- Behaviours ---- */
-    @RequestMapping("/nombre")
+    @RequestMapping(path = "/nombre")
     public int returnNumberOfContacts() {
         return agendaService.nombreContactes();
     }
 
-    @RequestMapping("/telefon")
+    @RequestMapping(path = "/telefon")
     public String returnPersonPhone(@RequestParam String id) {
         return agendaService.recupera(id).getTelefon();
     }
@@ -32,7 +32,7 @@ public class Controller extends RuntimeException {
     public void error() {
     }
 
-    @RequestMapping("/contacte/{id}")
+    @RequestMapping(path = "/contacte/{id}")
     public Persona returnPerson(@PathVariable String id) throws Exception {
         if (!agendaService.getBbdd().containsKey(id)) {
             Exception idNotInBBDD = new Exception();
@@ -41,7 +41,7 @@ public class Controller extends RuntimeException {
         return agendaService.recupera(id);
     }
 
-    @RequestMapping(value = "/afegir", method = RequestMethod.POST)
+    @RequestMapping(path = "/afegir", method = RequestMethod.POST)
     public void addNewContact(@RequestParam String id, String nom, String telèfon) {
         agendaService.inserta(id, nom, telèfon);
     }

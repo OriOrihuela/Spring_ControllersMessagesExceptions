@@ -16,20 +16,15 @@ public class Controller extends RuntimeException {
     private AgendaService agendaService = null;
 
 
-    /* ---- Getters ---- */
-    public AgendaService getAgendaService() {
-        return this.agendaService;
-    }
-
     /* ---- Behaviours ---- */
     @RequestMapping("/nombre")
     public int returnNumberOfContacts() {
-        return getAgendaService().nombreContactes();
+        return agendaService.nombreContactes();
     }
 
     @RequestMapping("/telefon")
     public String returnPersonPhone(String id) {
-        return getAgendaService().recupera(id).getTelefon();
+        return agendaService.recupera(id).getTelefon();
     }
 
     @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "ID not in database")
@@ -39,15 +34,15 @@ public class Controller extends RuntimeException {
 
     @RequestMapping("/contacte/{id}")
     public Persona returnPerson(@PathVariable String id) throws Exception {
-        if (!getAgendaService().getBbdd().containsKey(id)) {
+        if (!agendaService.getBbdd().containsKey(id)) {
             Exception idNotInBBDD = new Exception();
             throw idNotInBBDD;
         }
-        return getAgendaService().recupera(id);
+        return agendaService.recupera(id);
     }
 
     @RequestMapping(value = "/afegir", method = RequestMethod.POST)
     public void addNewContact(String id, String nom, String telèfon) {
-        getAgendaService().inserta(id, nom, telèfon);
+        agendaService.inserta(id, nom, telèfon);
     }
 }

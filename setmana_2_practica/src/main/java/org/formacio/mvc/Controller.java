@@ -23,7 +23,7 @@ public class Controller extends RuntimeException {
     }
 
     @RequestMapping("/telefon")
-    public String returnPersonPhone(String id) {
+    public String returnPersonPhone(@RequestParam String id) {
         return agendaService.recupera(id).getTelefon();
     }
 
@@ -42,7 +42,7 @@ public class Controller extends RuntimeException {
     }
 
     @RequestMapping(value = "/afegir", method = RequestMethod.POST)
-    public void addNewContact(String id, String nom, String telèfon) {
+    public void addNewContact(@RequestParam String id, String nom, String telèfon) {
         agendaService.inserta(id, nom, telèfon);
     }
 }
